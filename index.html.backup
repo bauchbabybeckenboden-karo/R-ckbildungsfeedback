@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kurs-Feedback · Bauch Baby Beckenboden</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --burgundy:      #7a3f3a;
+      --burgundy-dark: #5c2e2b;
+      --cream:         #f2ede8;
+      --cream-light:   #f8f4f0;
+      --border:        #e2d8d0;
+      --gold:          #c4a882;
+      --brown-mid:     #7a5c4a;
+      --sage-dark:     #6b8c6b;
+      --text:          #2a1a1a;
+      --text-muted:    #8a7060;
+    }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--cream);
+      min-height: 100vh;
+      color: var(--text);
+      font-weight: 300;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--burgundy);
+      padding: 44px 32px 72px;
+      color: var(--cream-light);
+      position: relative;
+      text-align: center;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; left: 0; right: 0;
+      height: 36px;
+      background: var(--cream);
+      border-radius: 36px 36px 0 0;
+    }
+
+    .hero-brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+    .hero-logo {
+      width: 48px;
+      height: 48px;
+      flex-shrink: 0;
+    }
+    .hero-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: brightness(0) invert(1) opacity(0.85);
+    }
+    .hero-brand-text { text-align: left; }
+    .hero-brand-name {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--cream-light);
+      line-height: 1.3;
+    }
+    .hero-brand-sub {
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 3px;
+    }
+
+    .hero-eyebrow {
+      font-size: 10px;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .hero-h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 38px;
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--cream-light);
+      margin-bottom: 4px;
+    }
+    .hero-h1-italic {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 38px;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 16px;
+    }
+    .hero-desc {
+      font-size: 14px;
+      line-height: 1.8;
+      color: rgba(248,244,240,0.78);
+      max-width: 380px;
+      margin: 0 auto;
+    }
+
+    /* ── CONTENT ── */
+    .content {
+      max-width: 560px;
+      margin: 0 auto;
+      padding: 36px 20px 64px;
+    }
+
+    /* ── INFO BLOCK ── */
+    .info-block {
+      background: var(--cream-light);
+      border-left: 3px solid var(--gold);
+      border-radius: 10px;
+      padding: 18px 18px;
+      margin-bottom: 20px;
+      font-size: 13px;
+      line-height: 1.75;
+      color: var(--text-muted);
+    }
+
+    /* ── SECTIONS ── */
+    .section {
+      background: #fff;
+      border-radius: 16px;
+      padding: 28px 26px;
+      border: 1px solid var(--border);
+      margin-bottom: 24px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 22px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-icon { font-size: 20px; }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--burgundy);
+    }
+
+    /* ── QUESTIONS ── */
+    .question { margin-bottom: 28px; }
+    .question:last-child { margin-bottom: 0; }
+
+    .question-label {
+      display: block;
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+    .question-label .required {
+      color: var(--burgundy);
+      font-weight: 500;
+    }
+    .question-hint {
+      display: block;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    /* ── NAME FIELD ── */
+    .name-field {
+      background: #fff;
+      border-radius: 16px;
+      padding: 22px 26px;
+      border: 1px solid var(--border);
+      margin-bottom: 24px;
+    }
+    .name-field input[type="text"] {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-family: 'Jost', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text);
+      background: var(--cream-light);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .name-field input[type="text"]:focus { border-color: var(--burgundy); }
+    .name-field input[type="text"]::placeholder { color: var(--text-muted); }
+
+    textarea {
+      width: 100%;
+      min-height: 80px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-family: 'Jost', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text);
+      background: var(--cream-light);
+      resize: vertical;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    textarea:focus { border-color: var(--burgundy); }
+    textarea::placeholder { color: var(--text-muted); }
+    textarea:invalid { border-color: #d9534f; }
+
+    /* ── STARS ── */
+    .stars {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+      gap: 4px;
+      margin-top: 8px;
+    }
+    .stars input { display: none; }
+    .stars label {
+      font-size: 28px;
+      color: var(--border);
+      cursor: pointer;
+      transition: color 0.15s;
+    }
+    .stars input:checked ~ label,
+    .stars label:hover,
+    .stars label:hover ~ label { color: var(--gold); }
+
+    /* ── SCALE ── */
+    .scale-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    .scale-label-text {
+      font-size: 11px;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+    .scale-buttons { display: flex; gap: 8px; }
+    .scale-buttons input { display: none; }
+    .scale-buttons label {
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      cursor: pointer;
+      color: var(--text-muted);
+      transition: all 0.15s;
+    }
+    .scale-buttons input:checked + label {
+      background: var(--burgundy);
+      border-color: var(--burgundy);
+      color: #fff;
+    }
+    .scale-buttons label:hover {
+      border-color: var(--burgundy);
+      color: var(--burgundy);
+    }
+
+    /* ── OPTIONS ── */
+    .options { display: flex; flex-direction: column; gap: 10px; }
+    .options.inline { flex-direction: row; flex-wrap: wrap; gap: 10px; }
+
+    .option-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      color: var(--text);
+      padding: 9px 14px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--cream-light);
+      transition: all 0.15s;
+    }
+    .option-item:hover { border-color: var(--burgundy); background: #fff; }
+    .option-item input { display: none; }
+
+    .dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border);
+      flex-shrink: 0;
+      transition: all 0.15s;
+      background: #fff;
+    }
+    .option-item.checkbox .dot { border-radius: 4px; }
+
+    .option-item input:checked ~ .dot {
+      background: var(--burgundy);
+      border-color: var(--burgundy);
+    }
+    .option-item.checkbox input:checked ~ .dot {
+      background: var(--sage-dark);
+      border-color: var(--sage-dark);
+    }
+
+    /* ── CONSENT ── */
+    .check-group {
+      background: #fff;
+      border-radius: 16px;
+      padding: 22px 26px;
+      border: 1px solid var(--border);
+      margin-bottom: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .r-option {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      cursor: pointer;
+      font-size: 14px;
+      color: var(--text);
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--cream-light);
+      line-height: 1.5;
+      transition: all 0.15s;
+    }
+    .r-option:hover { border-color: var(--burgundy); background: #fff; }
+    .r-option input[type="checkbox"] { display: none; }
+    .c-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 4px;
+      border: 1.5px solid var(--border);
+      flex-shrink: 0;
+      margin-top: 2px;
+      transition: all 0.15s;
+      background: #fff;
+    }
+    .r-option.checked .c-dot {
+      background: var(--sage-dark);
+      border-color: var(--sage-dark);
+    }
+    .r-option.checked { border-color: var(--sage-dark); }
+
+    /* ── DROPDOWN ── */
+    .styled-select {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-family: 'Jost', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text);
+      background: var(--cream-light);
+      outline: none;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238a7060' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    .styled-select:focus { border-color: var(--burgundy); }
+
+    /* "eigenes" Checkbox mit Textfeld nebeneinander */
+    .option-item-with-input {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 14px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--cream-light);
+      transition: all 0.15s;
+    }
+    .option-item-with-input:focus-within { border-color: var(--burgundy); background: #fff; }
+    .option-item-with-input input[type="checkbox"] { display: none; }
+    .option-item-with-input .dot { border-radius: 4px; flex-shrink: 0; }
+    .option-item-with-input input[type="checkbox"]:checked ~ .dot {
+      background: var(--sage-dark);
+      border-color: var(--sage-dark);
+    }
+    .eigenes-text {
+      flex: 1;
+      border: none;
+      background: transparent;
+      font-family: 'Jost', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text);
+      outline: none;
+      min-height: unset;
+      resize: none;
+      padding: 0;
+    }
+    .eigenes-text::placeholder { color: var(--text-muted); }
+
+    /* Abschlusshinweis */
+    .closing-note {
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+
+    /* ── SUBMIT ── */
+    .submit-area { text-align: center; margin-top: 32px; }
+    .submit-note {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+    .btn-submit {
+      background: var(--burgundy);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      padding: 14px 40px;
+      font-family: 'Jost', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-submit:hover { background: var(--burgundy-dark); }
+
+    /* ── THANK YOU ── */
+    .thankyou {
+      display: none;
+      text-align: center;
+      padding: 48px 24px;
+    }
+    .ty-icon { font-size: 48px; margin-bottom: 16px; }
+    .thankyou h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 300;
+      color: var(--burgundy);
+      margin-bottom: 12px;
+    }
+    .thankyou p {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-brand">
+      <div class="hero-logo">
+        <img src="logo.png" alt="Bauch Baby Beckenboden Logo">
+      </div>
+      <div class="hero-brand-text">
+        <div class="hero-brand-name">Bauch · Baby · Beckenboden</div>
+        <div class="hero-brand-sub">Karoline Hartwig</div>
+      </div>
+    </div>
+    <div class="hero-eyebrow">Deine Meinung zählt</div>
+    <h1 class="hero-h1">Wie war der Kurs</h1>
+    <span class="hero-h1-italic">für dich?</span>
+    <p class="hero-desc">Der Kurs hatte nun ein wenig Zeit nachzuwirken – und ich freue mich sehr, wenn du dir ein paar Minuten nimmst, um mir für die vergangene Einheit oder den gesamten Kurs Feedback zu geben. Es hilft mir, jeden Kurs weiterzuentwickeln. Herzlichen Dank!</p>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <div class="info-block">
+      Sollte dir etwas wirklich auf dem Herzen liegen oder du etwas dringend loswerden wollen, ruf mich gerne an. Du sollst dich in unserem Kurs wohlfühlen – wir können von Herzen gern sprechen.
+    </div>
+
+    <form id="feedback-form">
+
+      <!-- NAME (optional) -->
+      <div class="name-field">
+        <label class="question-label" for="teilnehmer-name">Dein Name <span class="question-hint" style="display:inline; font-style:normal; margin:0;">(optional)</span></label>
+        <input type="text" id="teilnehmer-name" name="teilnehmer_name" placeholder="Du darfst auch anonym bleiben">
+      </div>
+
+      <!-- 1. RÄUMLICHKEIT -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-icon">🫖</div>
+          <h2 class="section-title">Räumlichkeit</h2>
+        </div>
+
+        <div class="question">
+          <label class="question-label">Wie empfandest du die Temperatur im Raum?</label>
+          <div class="options inline">
+            <label class="option-item">
+              <input type="radio" name="raum_temp" value="zu kalt">
+              <span class="dot"></span> Zu kalt
+            </label>
+            <label class="option-item">
+              <input type="radio" name="raum_temp" value="angenehm">
+              <span class="dot"></span> Angenehm
+            </label>
+            <label class="option-item">
+              <input type="radio" name="raum_temp" value="zu warm">
+              <span class="dot"></span> Zu warm
+            </label>
+          </div>
+        </div>
+
+        <div class="question">
+          <label class="question-label">Wie wohl hast du dich im Kursraum insgesamt gefühlt?</label>
+          <div class="stars">
+            <input type="radio" name="raum_wohl" id="rw5" value="5"><label for="rw5">★</label>
+            <input type="radio" name="raum_wohl" id="rw4" value="4"><label for="rw4">★</label>
+            <input type="radio" name="raum_wohl" id="rw3" value="3"><label for="rw3">★</label>
+            <input type="radio" name="raum_wohl" id="rw2" value="2"><label for="rw2">★</label>
+            <input type="radio" name="raum_wohl" id="rw1" value="1"><label for="rw1">★</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <label class="question-label">Wie war der Platz für dich auf der Matte?</label>
+          <div class="options inline">
+            <label class="option-item">
+              <input type="radio" name="raum_platz" value="zu eng">
+              <span class="dot"></span> Etwas eng
+            </label>
+            <label class="option-item">
+              <input type="radio" name="raum_platz" value="genug">
+              <span class="dot"></span> Genug Platz
+            </label>
+            <label class="option-item">
+              <input type="radio" name="raum_platz" value="viel">
+              <span class="dot"></span> Viel Platz
+            </label>
+          </div>
+        </div>
+
+        <div class="question">
+          <label class="question-label">Womit hättest Du Dich wohler gefühlt?</label>
+          <textarea name="raum_wunsch" placeholder="Vielleicht hast Du einen Gedanken der mir zukünftig hilft, den Raum angenehmer zu gestalten …"></textarea>
+        </div>
+
+        <div class="question">
+          <label class="question-label">Wie passend war für dich die Beleuchtung?</label>
+          <div class="scale-wrap">
+            <span class="scale-label-text">Zu hell</span>
+            <div class="scale-buttons">
+              <input type="radio" name="licht_skala" id="ls1" value="1"><label for="ls1">1</label>
+              <input type="radio" name="licht_skala" id="ls2" value="2"><label for="ls2">2</label>
+              <input type="radio" name="licht_skala" id="ls3" value="3"><label for="ls3">3</label>
+              <input type="radio" name="licht_skala" id="ls4" value="4"><label for="ls4">4</label>
+              <input type="radio" name="licht_skala" id="ls5" value="5"><label for="ls5">5</label>
+            </div>
+            <span class="scale-label-text">Genau richtig / stimmungsvoll</span>
+          </div>
+        </div>
+
+        <div class="question">
+          <label class="question-label">Welche Art der Beleuchtung wünschst Du Dir?</label>
+          <textarea name="licht_wunsch" placeholder="Kerzenlicht, buntes Licht, wechselndes Licht…"></textarea>
+        </div>
+      </div>
+
+      <!-- 3. KÖRPERGEFÜHL & ÜBUNGEN -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-icon">🌿</div>
+          <h2 class="section-title">Körpergefühl & Übungen</h2>
+        </div>
+
+        <div class="question">
+          <label class="question-label">Hast du während des Kurses Schmerzen, Beschwerden oder Unangenehmes erlebt?</label>
+          <div class="options inline">
+            <label class="option-item">
+              <input type="radio" name="schmerz_ja" value="nein">
+              <span class="dot"></span> Nein
+            </label>
+            <label class="option-item">
+              <input type="radio" name="schmerz_ja" value="unangenehm">
+              <span class="dot"></span> Mir war etwas unangenehm
+            </label>
+            <label class="option-item">
+              <input type="radio" name="schmerz_ja" value="leicht">
+              <span class="dot"></span> Leichtes Unbehagen / Schmerz
+            </label>
+            <label class="option-item">
+              <input type="radio" name="schmerz_ja" value="ja">
+              <span class="dot"></span> Ja, deutliche Schmerzen
+            </label>
+          </div>
+        </div>
+
+        <div class="question">
+          <label class="question-label">Falls ja: Was genau? Welche Übungen oder Körperstellen waren betroffen?</label>
+          <span class="question-hint">Hilft mir, Alternativen oder Hinweise einzubauen – gilt für Schmerzen genauso wie für unangenehme Empfindungen.</span>
+          <textarea name="beschwerde_detail" placeholder="z. B. Knie beim Vierfüsslerstand, eine Übung hat sich komisch angefühlt …"></textarea>
+        </div>
+
+        <div class="question">
+          <label class="question-label">Wie gut wurden Modifikationen / Anpassungen angeboten?</label>
+          <div class="stars">
+            <input type="radio" name="modifikation" id="mo5" value="5"><label for="mo5">★</label>
+            <input type="radio" name="modifikation" id="mo4" value="4"><label for="mo4">★</label>
+            <input type="radio" name="modifikation" id="mo3" value="3"><label for="mo3">★</label>
+            <input type="radio" name="modifikation" id="mo2" value="2"><label for="mo2">★</label>
+            <input type="radio" name="modifikation" id="mo1" value="1"><label for="mo1">★</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <label class="question-label">Wie würdest du das Tempo des Kurses beschreiben?</label>
+          <span class="question-hint">Somatisches Yoga / Somatic Körpermitte & Beckenboden kann in sehr unterschiedlichen Tempi stattfinden. In einer Gruppe kann es passieren, dass das Tempo für dich nicht perfekt passt.</span>
+          <div class="options inline">
+            <label class="option-item">
+              <input type="radio" name="tempo" value="zu langsam">
+              <span class="dot"></span> Zu langsam
+            </label>
+            <label class="option-item">
+              <input type="radio" name="tempo" value="genau richtig">
+              <span class="dot"></span> Genau richtig
+            </label>
+            <label class="option-item">
+              <input type="radio" name="tempo" value="zu schnell">
+              <span class="dot"></span> Zu schnell
+            </label>
+          </div>
+        </div>
+
+        <div class="question">
+          <label class="question-label">Die Einheit hat bei dir ausgelöst, dass …</label>
+          <div class="options">
+            <label class="option-item">
+              <input type="radio" name="empfehlen" value="ja">
+              <span class="dot"></span> Du dich auf das nächste Mal freust
+            </label>
+            <label class="option-item">
+              <input type="radio" name="empfehlen" value="vielleicht">
+              <span class="dot"></span> Du dem nächsten Mal skeptisch entgegenblickst
+            </label>
+            <label class="option-item">
+              <input type="radio" name="empfehlen" value="nein">
+              <span class="dot"></span> Du lieber nicht teilnehmen würdest
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. ÜBER DICH -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-icon">🌸</div>
+          <h2 class="section-title">Über dich</h2>
+        </div>
+
+        <div class="question">
+          <label class="question-label">Wie war deine Erfahrung mit dem Beckenboden vor dem Kurs?</label>
+          <div class="options">
+            <label class="option-item">
+              <input type="radio" name="erfahrung" value="keine">
+              <span class="dot"></span> Keine Vorerfahrung
+            </label>
+            <label class="option-item">
+              <input type="radio" name="erfahrung" value="bisschen">
+              <span class="dot"></span> Ein wenig (z. B. aus Yoga oder Pilates)
+            </label>
+            <label class="option-item">
+              <input type="radio" name="erfahrung" value="viel">
+              <span class="dot"></span> Ich übe regelmäßig
+            </label>
+            <label class="option-item">
+              <input type="radio" name="erfahrung" value="therapeutisch">
+              <span class="dot"></span> Ich war / bin in Beckenbodentherapie
+            </label>
+          </div>
+        </div>
+
+        <div class="question">
+          <label class="question-label">Wie hast du dich nach dem Kurs gefühlt?</label>
+          <div class="options">
+            <label class="option-item">
+              <input type="radio" name="nachher" value="erholt">
+              <span class="dot"></span> Erholt und zentriert
+            </label>
+            <label class="option-item">
+              <input type="radio" name="nachher" value="energetisch">
+              <span class="dot"></span> Lebendig und energetisch
+            </label>
+            <label class="option-item">
+              <input type="radio" name="nachher" value="neutral">
+              <span class="dot"></span> Neutral
+            </label>
+            <label class="option-item">
+              <input type="radio" name="nachher" value="ueberwaeltigt">
+              <span class="dot"></span> Etwas überwältigt / verarbeite noch
+            </label>
+          </div>
+        </div>
+
+        <div class="question">
+          <label class="question-label">Welcher Altersgruppe gehörst du an?</label>
+          <div class="options inline">
+            <label class="option-item">
+              <input type="radio" name="alter" value="unter30">
+              <span class="dot"></span> unter 30
+            </label>
+            <label class="option-item">
+              <input type="radio" name="alter" value="30-45">
+              <span class="dot"></span> 30–45
+            </label>
+            <label class="option-item">
+              <input type="radio" name="alter" value="46-60">
+              <span class="dot"></span> 46–60
+            </label>
+            <label class="option-item">
+              <input type="radio" name="alter" value="über60">
+              <span class="dot"></span> über 60
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Raum für Dich -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-icon">💬</div>
+          <h2 class="section-title">Raum für Dich</h2>
+        </div>
+
+        <div class="question">
+          <label class="question-label">Was hat dir im Kurs am besten gefallen oder hat dir besonders geholfen? <span class="required">*</span></label>
+          <span class="question-hint">Gerne auch eine kurze Szene, ein Moment oder eine konkrete Übung …</span>
+          <textarea name="beruehrt" placeholder="Z. B. Die Entspannungsphase, eine bestimmte Übung, die Atmung, der Austausch mit der Gruppe …" required></textarea>
+        </div>
+
+        <div class="question">
+          <label class="question-label">Gibt es Themen oder Übungsbereiche, die du dir für künftige Kurse wünschst oder das Du mir mitgeben möchtest?</label>
+          <textarea name="wunschthemen" placeholder="z. B. Atem & Beckenboden, postpartale Rückkehr, Zyklusarbeit …"></textarea>
+        </div>
+      </div>
+
+      <!-- 7. WUNSCH-INHALTE -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-icon">📬</div>
+          <h2 class="section-title">Was hättest Du gern vorab gewusst?</h2>
+        </div>
+
+        <div class="question">
+          <label class="question-label">Denkst Du es wäre sinnvoll zukünftig zu den folgenden Themen vor Kursbeginn Informationen bereitzustellen?</label>
+          <span class="question-hint">Mehreres wählbar – ich schicke dir die Inhalte nach deiner Buchung zu.</span>
+          <div class="options" style="margin-top: 4px;">
+            <label class="option-item checkbox">
+              <input type="checkbox" name="info_themen" value="nervensystem">
+              <span class="dot"></span> Nervensystem
+            </label>
+            <label class="option-item checkbox">
+              <input type="checkbox" name="info_themen" value="somatische_arbeit">
+              <span class="dot"></span> Somatische Arbeit
+            </label>
+            <label class="option-item checkbox">
+              <input type="checkbox" name="info_themen" value="yoga_somatic">
+              <span class="dot"></span> Yoga im Somatic Yoga Kontext
+            </label>
+            <div class="option-item-with-input">
+              <label style="display:flex;align-items:center;gap:8px;cursor:pointer;flex-shrink:0;">
+                <input type="checkbox" name="info_themen" value="eigenes" id="cb-eigenes">
+                <span class="dot" style="width:14px;height:14px;border-radius:4px;border:1.5px solid var(--border);background:#fff;flex-shrink:0;transition:all 0.15s;"></span>
+              </label>
+              <input class="eigenes-text" type="text" name="info_eigenes" placeholder="Eigenes Thema …"
+                onfocus="document.getElementById('cb-eigenes').checked=true; document.querySelector('label[for=cb-eigenes] .dot, #cb-eigenes ~ .dot');"
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="question">
+          <label class="question-label">In welcher Form möchtest du die Inhalte am liebsten erhalten?</label>
+          <select name="info_format" class="styled-select">
+            <option value="" disabled selected>Bitte wählen …</option>
+            <option value="video">Per Video abrufbar</option>
+            <option value="schriftlich">Schriftlich</option>
+            <option value="beides">Beides gerne</option>
+          </select>
+        </div>
+      </div>
+
+      <p class="closing-note">Nicht alle Wünsche können erfüllt werden –<br>aber ich gebe gerne mein Bestes. ♡</p>
+
+      <div class="check-group" id="consent-group">
+        <label class="r-option" onclick="selectCheck(event, this)">
+          <input type="checkbox" name="consent-dsgvo" value="dsgvo" />
+          <span class="c-dot"></span>
+          Ich habe die 
+          <a href="https://www.bauch-baby-beckenboden.de/datenschutz/" target="_blank" 
+             style="color:var(--burgundy);text-decoration:underline;display:inline;">
+            Datenschutzerklärung
+          </a> 
+          gelesen und willige ein.*
+        </label>
+        <label class="r-option" onclick="selectCheck(event, this)">
+          <input type="checkbox" name="consent-notiz" value="notiz" />
+          <span class="c-dot"></span>
+          Ich bin damit einverstanden, dass meine Angaben in anonymisierter Form für die Stundenplanung genutzt werden.*
+        </label>
+      </div>
+
+      <div class="submit-area">
+        <p class="submit-note">Hier geht es weiter.</p>
+        <button type="submit" class="btn-submit">Feedback absenden</button>
+      </div>
+
+    </form>
+
+    <div class="thankyou" id="thankyou">
+      <div class="ty-icon">🌿</div>
+      <h2>Herzlichen Dank!</h2>
+      <p>Dein Feedback ist angekommen.<br>Es fließt direkt in die Weiterentwicklung des Kurses ein.</p>
+    </div>
+
+  </div>
+
+<script>
+  // "Eigenes Thema" – Checkbox automatisch setzen beim Tippen
+  const eigenesInput = document.querySelector('input[name="info_eigenes"]');
+  const eigenesCb    = document.getElementById('cb-eigenes');
+  const eigenesDot   = eigenesInput.closest('.option-item-with-input').querySelector('.dot');
+  eigenesInput.addEventListener('input', () => {
+    const hasText = eigenesInput.value.trim().length > 0;
+    eigenesCb.checked = hasText;
+    eigenesDot.style.background    = hasText ? 'var(--sage-dark)' : '#fff';
+    eigenesDot.style.borderColor   = hasText ? 'var(--sage-dark)' : 'var(--border)';
+  });
+
+  function selectCheck(event, label) {
+    if (event.target.tagName === 'A') return;
+    event.preventDefault();
+    const cb = label.querySelector('input[type="checkbox"]');
+    cb.checked = !cb.checked;
+    label.classList.toggle('checked', cb.checked);
+  }
+
+  document.getElementById('feedback-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    // ── Consent-Pflichtprüfung ──────────────────────────────
+    const dsgvo = this.querySelector('input[name="consent-dsgvo"]');
+    const notiz = this.querySelector('input[name="consent-notiz"]');
+
+    if (!dsgvo.checked || !notiz.checked) {
+      const group = document.getElementById('consent-group');
+      group.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      group.style.outline = '2px solid var(--burgundy)';
+      group.style.borderRadius = '16px';
+      setTimeout(() => group.style.outline = '', 3000);
+      return;
+    }
+    // ─────────────────────────────────────────────────────────
+
+    const btn = this.querySelector('.btn-submit');
+    btn.textContent = 'Wird gesendet …';
+    btn.disabled = true;
+
+    const fd = new FormData(this);
+    const get = (name) => fd.get(name) || '–';
+
+    const payload = {
+      teilnehmer_name: get('teilnehmer_name'),
+      kurs:            get('kurs') !== '–' ? get('kurs') : 'Kurs',
+      eingereicht_am:  new Date().toLocaleDateString('de-DE', { day:'2-digit', month:'2-digit', year:'numeric' }),
+      raum_wohl:       get('raum_wohl'),
+      raum_temp:       get('raum_temp'),
+      raum_platz:      get('raum_platz'),
+      raum_wunsch:     get('raum_wunsch'),
+      licht_skala:     get('licht_skala'),
+      licht_wunsch:    get('licht_wunsch'),
+      schmerz:         get('schmerz_ja'),
+      schmerz_detail:  get('beschwerde_detail'),
+      modifikation:    get('modifikation'),
+      tempo:           get('tempo'),
+      empfehlen:       get('empfehlen'),
+      erfahrung:       get('erfahrung'),
+      nachher:         get('nachher'),
+      alter:           get('alter'),
+      beruehrt:        get('beruehrt'),
+      wunschthemen:    get('wunschthemen'),
+      info_themen:     fd.getAll('info_themen').join(', ') || '–',
+      info_eigenes:    get('info_eigenes'),
+      info_format:     get('info_format'),
+    };
+
+    try {
+      const res = await fetch('/.netlify/functions/feedback-notification', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) throw new Error('Server error ' + res.status);
+
+      document.getElementById('feedback-form').style.display = 'none';
+      document.getElementById('thankyou').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    } catch (err) {
+      console.error(err);
+      btn.textContent = 'Fehler – bitte erneut versuchen';
+      btn.disabled = false;
+      btn.style.background = '#b94040';
+    }
+  });
+</script>
+</body>
+</html>
